@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white selection:bg-accent-purple/30;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl;
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/5 rounded-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple via-accent-blue to-accent-cyan;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-gradient-to-r from-accent-purple to-accent-blue rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 glass hover:bg-white/10 rounded-full font-semibold transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+/* Mouse Glow Effect */
+.mouse-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: radial-gradient(600px at var(--mouse-x) var(--mouse-y), rgba(139, 92, 246, 0.15), transparent 80%);
+}
